@@ -2,19 +2,19 @@
 
 namespace POE\database;
 
+
 class CharacterLoader
 {
     private $connection;
 
-    public function __construct($connection)
+    public function __construct(Connection $connection)
     {
-        $this->connection = $connection;
+        $this->connection = $connection->getConnection();
     }
 
-    public function load($id)
+    public function load(int $id): Character
     {
-
-        $statement = $connection->prepare('SELECT * FROM characters WHERE id = :id');
+        $statement = $this->connection->prepare('SELECT * FROM characters WHERE id = :id');
 
         $statement->bindValue(':id', $id, \PDO::PARAM_INT);
 

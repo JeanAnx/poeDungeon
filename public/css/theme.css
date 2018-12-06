@@ -13,11 +13,12 @@
 }
 
 .attackDefense > div {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 progress {
-    color: green;
+
+    margin: .5em 0;
 }
 
 .blocStat {

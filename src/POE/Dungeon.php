@@ -3,6 +3,7 @@
 namespace POE;
 
 use POE\database\CharacterLoader;
+use POE\database\Connection;
 
 class Dungeon
 {
@@ -12,7 +13,7 @@ class Dungeon
          * On passe par un objet intermédiaire pour récupérer notre personnage
          * par anticipation avec le fait qu'il viendra de la base de données
          */
-        $loader = new CharacterLoader();
+        $loader = new CharacterLoader(new Connection());
         $character = $loader->load(1);
         
         /**
