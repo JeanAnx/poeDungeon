@@ -2,11 +2,27 @@
 
 namespace POE\database;
 
-class Characterloader
+class CharacterLoader
 {
-    public function load()
+    private $connection;
+
+    public function __construct($connection)
     {
-        $character = new Character();
+        $this->connection = $connection;
+    }
+
+    public function load($id)
+    {
+
+        $statement = $connection->prepare('SELECT * FROM characters WHERE id = :id');
+
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+
+        $statement->setFetchMode(\PDO::FETCH_CLASS, Character::class);
+
+        $statement->execute();
+
+        $character = $statement->fetch();
 
         return $character;
     }

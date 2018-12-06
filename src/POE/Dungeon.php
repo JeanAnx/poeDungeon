@@ -13,7 +13,7 @@ class Dungeon
          * par anticipation avec le fait qu'il viendra de la base de données
          */
         $loader = new CharacterLoader();
-        $character = $loader->load();
+        $character = $loader->load(1);
         
         /**
          * Démarrage d'un tampon de sortie / Output Buffet
