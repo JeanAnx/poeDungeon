@@ -35,14 +35,17 @@ form.createCharacter {
     width: 300px;
     display: flex;
     flex-flow: column nowrap;
-}P_Inter
+    background-color: gainsboro;
+}
 
 form.createCharacter > div > label {
     display: block;
     margin: .5em auto;
 }
 
-
+input {
+    text-align: center;
+}
 
 .createCharacter > div {
     width: 50%;

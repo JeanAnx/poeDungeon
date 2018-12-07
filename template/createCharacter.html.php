@@ -16,7 +16,7 @@
         
             <div>
             <label for="name">Nom</label>
-            <input required type="text" name="name" id="name" placeholder="Nom de votre personnage">
+            <input required type="text" name="name" id="name" placeholder="Nom du personnage">
             </div>
 
             <div>
