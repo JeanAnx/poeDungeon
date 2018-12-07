@@ -2,7 +2,11 @@
     width: 400px;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid grey;
+}
+
+.heroCard , form.createCharacter {
+    border: 1px solid gainsboro;
+    box-shadow: 2px 2px 2px grey;
 }
 .attackDefense {
     text-align: center;
@@ -23,4 +27,33 @@ progress {
 
 .blocStat {
     margin-bottom: 1em;
+}
+
+/*** FORMULAIRE ***/
+
+form.createCharacter {
+    width: 300px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+label {
+    display: block;
+    margin: .5em auto;
+}
+
+
+
+.createCharacter > div {
+    width: 50%;
+    margin: .5em auto;
+    text-align: center;
+}
+
+.createCharacter button {
+    margin: 1em auto;
+    width: 20%;
+    padding: .3em;
+    font-size: 2em;
+    color: red;
 }
