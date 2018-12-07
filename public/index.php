@@ -12,7 +12,8 @@ $dungeon = new POE\Dungeon();
 
 $pages = [
     '/jeu/situation' => 'reportSituation',
-    '/create-character' => 'createCharacter'
+    '/create-character' => 'createCharacter',
+    '/jeu/bagarre' => 'brawl',
 ];
 
 

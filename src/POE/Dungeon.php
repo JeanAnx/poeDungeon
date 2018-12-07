@@ -2,6 +2,8 @@
 
 namespace POE;
 
+use POE\brawl\DiceThrower;
+use POE\brawl\Ring;
 use POE\database\CharacterFactory;
 use POE\database\CharacterLoader;
 use POE\database\CharacterManager;
@@ -9,6 +11,19 @@ use POE\database\Connection;
 
 class Dungeon
 {
+
+    public function brawl()
+    {
+        $loader = new CharacterLoader(new Connection());
+
+        $attacker = $loader->load(1);
+        $defender = $loader->load(3);
+
+        $ring = new Ring($attacker , $defender);
+
+        $ring->fight();
+
+    }
 
     public function createCharacter()
     {
