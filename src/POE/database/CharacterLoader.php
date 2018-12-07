@@ -3,14 +3,8 @@
 namespace POE\database;
 
 
-class CharacterLoader
+class CharacterLoader extends Connection
 {
-    private $connection;
-
-    public function __construct(Connection $connection)
-    {
-        $this->connection = $connection->getConnection();
-    }
 
     public function load(int $id): Character
     {

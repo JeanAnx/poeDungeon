@@ -37,7 +37,7 @@ form.createCharacter {
     flex-flow: column nowrap;
 }P_Inter
 
-label {
+form.createCharacter > div > label {
     display: block;
     margin: .5em auto;
 }

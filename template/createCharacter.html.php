@@ -32,7 +32,6 @@
             <button type="submit"><i class="fas fa-gopuram"></i></button>
         
         </form>
-    
 
     </main>
     
