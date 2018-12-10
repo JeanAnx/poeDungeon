@@ -14,6 +14,7 @@ class Ring
 {
     private $attacker;
     private $defender;
+    private $probs;
 
     public function __construct(Character $attacker, Character $defender)
     {
@@ -27,12 +28,30 @@ class Ring
 
         try {
             while (true) {
-                $this->defender->wound(20);
-                $report[] = $this->attacker->getName() . ' frappe ';
-                $this->defender->getName();
-                $this->attacker->wound(20);
-                $report[] = $this->defender->getName() . ' frappe ';
-                $this->attacker->getName();
+
+                $diceThrow = new DiceThrower();
+                $dice = $diceThrow->throwDice(100);
+
+                $probsAtt = 50 + ($this->attacker->getAttack() - $this->defender->getDefense());
+                echo '<pre>';
+                echo 'Probabilités: ';
+                var_dump($probsAtt);
+
+                echo 'Le dé = ';
+                echo $dice;
+
+                echo '</pre>';
+               if ($dice <= $probsAtt) {
+                   $this->defender->wound($this->attacker->getAttack());
+                   $report[] = $this->attacker->getName() . ' frappe ';
+                   $report[] = 'Dommages = ' . $this->attacker->getAttack();
+
+               } else {
+                   $this->attacker->wound($this->defender->getAttack());
+                   $report[] = $this->defender->getName() . ' frappe ';
+                   $report[] = 'Dommages = ' . $this->defender->getAttack();
+
+               }
 
             }
         } catch (\Exception $exception) {

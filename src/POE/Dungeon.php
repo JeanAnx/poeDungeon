@@ -15,8 +15,7 @@ class Dungeon
         $loader = new CharacterLoader();
 
         $attacker = $loader->load(1);
-        $defender = $loader->load(16);
-
+        $defender = $loader->load(10);
         $ring = new Ring($attacker, $defender);
         $fightReport = $ring->fight();
 
