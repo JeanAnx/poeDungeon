@@ -80,7 +80,7 @@ class Character
     public function wound(int $wound)
     {
         $this->life_current -= $wound;
-        if (0 > $this->life_current){
+        if ($this->life_current <= 0 ){
             echo $this->name . ' is DEAD';
             throw new \Exception('DEAD');
         }

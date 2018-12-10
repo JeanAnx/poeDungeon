@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stagiaire
- * Date: 07/12/18
- * Time: 12:18
- */
 
 namespace POE\brawl;
 
@@ -14,7 +8,7 @@ class Ring
 {
     private $attacker;
     private $defender;
-    private $probs;
+    private $probsAtt;
 
     public function __construct(Character $attacker, Character $defender)
     {
@@ -24,7 +18,7 @@ class Ring
 
     public function fight()
     {
-        $report = [];
+        $report = new Report($comments = []);
 
         try {
             while (true) {
@@ -43,20 +37,25 @@ class Ring
                 echo '</pre>';
                if ($dice <= $probsAtt) {
                    $this->defender->wound($this->attacker->getAttack());
-                   $report[] = $this->attacker->getName() . ' frappe ';
-                   $report[] = 'Dommages = ' . $this->attacker->getAttack();
+
+                   $report->append($this->attacker->getName() . ' frappe ');
+                   $report->append($this->defender->getName() . ' essuie ' . $this->attacker->getAttack() . ' pts de dommages ! ');
 
                } else {
                    $this->attacker->wound($this->defender->getAttack());
-                   $report[] = $this->defender->getName() . ' frappe ';
-                   $report[] = 'Dommages = ' . $this->defender->getAttack();
+                   $report->append($this->defender->getName() . ' frappe ');
+                   $report->append($this->attacker->getName() . ' essuie ' . $this->defender->getAttack() . ' pts de dommages ! ');
 
                }
+
+                $report->append('<h4>' . $this->attacker->getName() . ' = ' . $this->attacker->getCurrentLife() . ' / ' . $this->defender->getName() . ' = ' . $this->defender->getCurrentLife() . '</h4>');
+
+
 
             }
         } catch (\Exception $exception) {
         }
-        return $report;
+        return $report->comments;
 
     }
 

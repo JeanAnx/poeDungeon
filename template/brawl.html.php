@@ -9,7 +9,7 @@
 </head>
 <body>
 <ul>
-    <?php foreach ($fightReport as $action): ?>
+    <?php foreach ($fightReport as $key => $action): ?>
         <li><?= $action ?></li>
     <?php endforeach; ?>
 </ul>
