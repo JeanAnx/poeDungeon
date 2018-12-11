@@ -26,7 +26,7 @@ class Ring
                 $diceThrow = new DiceThrower();
                 $dice = $diceThrow->throwDice(100);
 
-                $probsAtt = 50 + ($this->attacker->getAttack() - $this->defender->getDefense());
+                $probsAtt = random_int(1,55) + ($this->attacker->getAttack() - $this->defender->getDefense());
                 echo '<pre>';
                 echo 'Probabilités: ';
                 var_dump($probsAtt);
@@ -50,7 +50,9 @@ class Ring
 
                 $report->append('<h4>' . $this->attacker->getName() . ' = ' . $this->attacker->getCurrentLife() . ' / ' . $this->defender->getName() . ' = ' . $this->defender->getCurrentLife() . '</h4>');
 
-
+                if ($this->attacker->getCurrentLife() <= 0) {
+                    $report->append(' <h1></h1><i class="fas fa-skull-crossbones"></i> ' . $this->name . '  is DEAD' . '<i class="fas fa-skull-crossbones"></i></h1>');
+                }
 
             }
         } catch (\Exception $exception) {

@@ -1,0 +1,13 @@
+{
+    "name": "poe/dungeon",
+    "description": "Jeu de combat - Aurez-vous le cran d'affronter Captain Perigord ?",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean Annaix",
+            "email": "jean.annaix@gmail.com"
+        }
+    ],
+    "require": {}
+}

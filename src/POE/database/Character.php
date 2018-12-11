@@ -81,7 +81,9 @@ class Character
     {
         $this->life_current -= $wound;
         if ($this->life_current <= 0 ){
-            echo $this->name . ' is DEAD';
+            echo ' <h1></h1><i class="fas fa-skull-crossbones"></i> ';
+            echo $this->name . '  is DEAD';
+            echo ' <i class="fas fa-skull-crossbones"></i></h1>';
             throw new \Exception('DEAD');
         }
     }
